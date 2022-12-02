@@ -2,7 +2,7 @@ package principal;
 
 //Importação de bilioteca//
 import java.util.Scanner;
-public class Principal {
+public class Principal{
 
     public static void main(String[] args){
         
@@ -15,7 +15,7 @@ public class Principal {
         
 
         
-        String nome = null,nome2,cpf = null,objetivo = null,turno,aula,franquia,telefone = null,data;      
+        String nome = null,nome2,cpf = null,objetivo = null,turno,aula,franquia,telefone = null,data,bairro,nivel,contrato;      
         
         double altura,peso = 0;        
         
@@ -30,11 +30,11 @@ public class Principal {
         
         Scanner entrada = new Scanner(System.in);      
         
-        Aluno novoAluno = new Aluno( "Lucas Neto", "12345678091" , "Hipertrofia", 1.75, 90, 20, "71985690011",idAluno++); 
-        Aluno novoAluno2 = new Aluno( "Roberto Carlos", "98765432176" , "Perder Peso", 1.75, 90, 20, "71985690011",idAluno++);
-        Aluno novoAluno3 = new Aluno( "Elis Regina", "76538902431" , "Resistência", 1.75, 90, 20, "71985690011",idAluno++);
-        Aluno novoAluno4 = new Aluno( "Edson Arantes", "67923409134" , "Resistência", 1.75, 90, 20, "71985690011",idAluno++);
-        Aluno novoAluno5 = new Aluno( "Neymar Junior", "38671980143" , "Hipertrofia", 1.75, 90, 20, "71985690011",idAluno++);
+        Aluno novoAluno = new Aluno( "Lucas Neto", "12345678091" , "Hipertrofia", 1.75, 90, 20, "71985690011",idAluno++,"Brotas","Iniciante"); 
+        Aluno novoAluno2 = new Aluno( "Roberto Carlos", "98765432176" , "Perder Peso", 1.75, 90, 20, "71985690011",idAluno++,"Campo Grande","Profissional");
+        Aluno novoAluno3 = new Aluno( "Elis Regina", "76538902431" , "Resistência", 1.75, 90, 20, "71985690011",idAluno++,"Lapa","Intermediário");
+        Aluno novoAluno4 = new Aluno( "Edson Arantes", "67923409134" , "Resistência", 1.75, 90, 20, "71985690011",idAluno++,"Barra","Iniciante");
+        Aluno novoAluno5 = new Aluno( "Neymar Junior", "38671980143" , "Hipertrofia", 1.75, 90, 20, "71985690011",idAluno++,"Mata Escura","Profissional");
         novoDadadosAlunos.insereAluno(novoAluno);
         novoDadadosAlunos.insereAluno(novoAluno2);
         novoDadadosAlunos.insereAluno(novoAluno3);
@@ -43,8 +43,8 @@ public class Principal {
         
         
         
-        Professor novoProfessor = new Professor("Cristiano Ronaldo","Matutino","Musculação","Pituba","21/2/2022",idProfessor++);       
-        Professor novoProfessor2 = new Professor("Lionel Messi","Nortuno","Boxe","Lapa","03/10/2020",idProfessor++);
+        Professor novoProfessor = new Professor("Cristiano Ronaldo","Matutino","Musculação","Pituba","21/2/2022",idProfessor++,"Engomadeira","98457023741","Estagiário","719999999";       
+        Professor novoProfessor2 = new Professor("Lionel Messi","Nortuno","Boxe","Lapa","03/10/2020",idProfessor++,"Engomadeira","98457023741","Estagiário","719999999");
         novoDadosProfessores.insereProfessor(novoProfessor);
         novoDadosProfessores.insereProfessor(novoProfessor2);
         
@@ -116,10 +116,16 @@ public class Principal {
                             entrada.nextLine();
                             }while(telefone.length() < 10 || telefone.length() > 11 );
                             
+                            System.out.println("\nInforme o bairro do Aluno");
+                            bairro = entrada.nextLine();
+                            
+                            System.out.println("\nInforme o nivel do Aluno");
+                            nivel = entrada.nextLine();
+                            
                             System.out.println("Aluno Cadastrado!");
                              
                             //Instanciando aluno cadastrado utilizando os atributos da classe como parametro e  adicionando esse aluno ao arraylist//
-                            novoAluno = new Aluno(nome,cpf,objetivo,peso,altura,idade,telefone,idAluno++);                        
+                            novoAluno = new Aluno(nome,cpf,objetivo,peso,altura,idade,telefone,idAluno++,bairro,nivel);                        
                             
                             novoDadadosAlunos.insereAluno(novoAluno);
                             
@@ -129,8 +135,8 @@ public class Principal {
                             //numero minimo de caracteres : 6  numero maximo de caracteres: 30//
                             do{
                             System.out.println("\nInforme o nome do Professor completo");
-                            nome2 = entrada.nextLine();
-                            }while(nome2.length() < 6 || nome2.length() > 30);
+                            nome = entrada.nextLine();
+                            }while(nome.length() < 6 || nome2.length() > 30);
                             
                             //numero minimo de caracteres:7  numero maximo de caracteres: 10. A ideia era limitar apenas a digitação para as palavras: Matutino/Vespertino/Noturno.// 
                             do{
@@ -156,10 +162,22 @@ public class Principal {
                             franquia = entrada.nextLine();
                             }while(franquia.length() < 4 || franquia.length() > 20);
                             
+                            System.out.println("\nInforme o bairro do professor");
+                            bairro = entrada.nextLine();
+                            
+                            System.out.println("\nInforme o cpf do professor");
+                            cpf = entrada.nextLine();
+                            
+                            System.out.println("\nInforme o tipo de contrato do professor");
+                            contrato = entrada.nextLine();
+                            
+                            System.out.println("\nInforme o telefone do professor");
+                            telefone = entrada.nextLine();
+                            
                             System.out.println("Professor Cadastrado!");
                             
                             //Instanciando professor cadastrado utilizando os atributos da classe como parametro e  adicionando esse professor ao arraylist//
-                            novoProfessor = new Professor(nome2,turno,aula,data,franquia,idProfessor++);
+                             novoProfessor3 = new Professor(nome,turno,aula,data,franquia,idProfessor++,bairro,cpf,contrato,telefone);
                                     
                             novoDadosProfessores.insereProfessor(novoProfessor);
                             

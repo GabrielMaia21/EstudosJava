@@ -1,13 +1,13 @@
 package principal;
 
 //classe professor com os atributos//
-public class Professor {
-    private String nome2;
+public class Professor extends Usuario {
+    private String contrato;
     private String turno;
     private String aula;
     private String franquia;
     private String data;
-    private int id;
+    
     
     //metodo professor sem parametro(vazio)//
     public Professor(){
@@ -15,22 +15,22 @@ public class Professor {
     }
 
     //metodo professor com parametro//
-     Professor(String nome2, String turno, String aula, String franquia, String data,int id) {
-        this.nome2 = nome2;
+     Professor(String nome, String cpf,String contrato, String bairro, int id,String turno, String aula, String franquia, String data, String telefone) {
+        super( nome, cpf, telefone, id, bairro);
         this.turno = turno;
         this.aula = aula;
         this.franquia = franquia;
         this.data = data;
-        this.id = id;
+        this.contrato = contrato;
     }
 
      //getters e setters//
-    public String getNome2() {
-        return nome2;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNome2(String nome2) {
-        this.nome2 = nome2;
+    public void setNome2(String nome) {
+        this.nome = nome;
     }
 
     public String getTurno() {
@@ -72,10 +72,20 @@ public class Professor {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(String contrato) {
+        this.contrato = contrato;
+    }
+    
+    
     
     //metodo listar para exibir alguns atributos para o usuario quando ele solicitar a listagem dos professores//
     void listar(){
-        System.out.println(" \tId:" + this.id + "\tNome: " + this.nome2 + " \tAula: " + this.aula + "\tTurno "  + this.turno);
+        System.out.println(" \tId:" + this.id + "\tNome: " + this.nome + " \tAula: " + this.aula + "\tTurno "  + this.turno);
 
           
 }
