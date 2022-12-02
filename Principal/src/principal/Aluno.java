@@ -1,32 +1,30 @@
 package principal;
-
 //classe aluno com os atributos//
-public class Aluno {
-     private String nome;
-     private String cpf;
+public class Aluno extends Usuario {
      private String objetivo;
      private double altura;
-     private String telefone;
      private double peso;
      private int idade;
-     private int id;
+     private String nivel;
+     
      
      //metodo aluno sem parametro(vazio)//
-     public Aluno(){
-         
-     }
-
-     //metodo aluno com parametros //
-     Aluno(String nome, String cpf, String objetivo, double peso, double altura, int idade, String telefone,int id) {
-     this.nome = nome;
-     this.cpf = cpf;
-     this.objetivo = objetivo;
-     this.peso = peso;
-     this.altura = altura;
-     this.idade = idade;
-     this.telefone = telefone;
-     this.id = id;
+    
+     public Aluno() {    
+        
     }
+
+    //metodo aluno com parametros //
+    Aluno(String nome, String cpf, String objetivo, double peso, double altura, int idade, String telefone, int id, String bairro, String nivel) {
+        super( nome, cpf, telefone, id, bairro);
+        this.objetivo = objetivo;
+        this.peso = peso;
+        this.altura = altura;
+        this.idade = idade;
+        this.nivel = nivel;
+    }
+
+
 
      //getters e setters//
      public String getNome() {
@@ -92,7 +90,17 @@ public class Aluno {
     public void setId(int id) {
         this.id = id;
     }
-     //metodo listar para exibir alguns atributos para o usuario quando ele solicitar a listagem dos alunos//
+
+    public String getTipo() {
+        return nivel;
+    }
+
+    public void setTipo(String tipo) {
+        this.nivel = tipo;
+    }
+     
+
+    //metodo listar para exibir alguns atributos para o usuario quando ele solicitar a listagem dos alunos//
     void listar(){
         System.out.println(" \tId:" + this.id + "\tNome: " + this.nome + " \tCpf: " + this.cpf + "\tObjetivo: " + this.objetivo);
         
